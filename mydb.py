@@ -13,3 +13,6 @@ cursorObject = dataBase.cursor()
 cursorObject.execute("CREATE DATABASE CRM")
 
 print("all done !")
+
+
+# khudhuashckasdsdscsdcs
