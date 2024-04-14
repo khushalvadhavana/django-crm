@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="card mt-2 shadow border-none">
+    <div class="card-header bg-secondary text-white d-flex justify-content-between"><strong>
+            {{ user_details.frist_name }}
+            {{ user_details.last_name }}</strong>
+
+          <div class="buttons">
+            <a href="{% url 'update_user' user_details.id %}" class="btn btn-primary">Update User</a>
+            <a href="{% url 'user_delete' user_details.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'user' %}" class="btn btn-dark">Back</a>
+          </div>
+    </div>
+    <div class="card-body">
+
+
+        <p class="card-text">
+            <strong>ID: </strong>{{ user_details.id }}
+        </p>
+        <p class="card-text">
+            <strong>Create At: </strong>{{ user_details.created_at }}
+        </p>
+        <p class="card-text">
+            <strong>Email: </strong>{{ user_details.email }}
+        </p>
+
+        <p class="card-text">
+            <strong>Phone: </strong>{{ user_details.phone }}
+        </p>
+
+        <p class="card-text">
+            <strong>Address: </strong>{{ user_details.address }}
+        </p>
+
+        <p class="card-text">
+            <strong>City: </strong>{{ user_details.city }}
+        </p>
+
+        <p class="card-text">
+            <strong>State: </strong>{{ user_details.state }}
+        </p>
+
+        <p class="card-text">
+            <strong>Zipcode: </strong>{{ user_details.zipcode }}
+        </p>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+{%endblock%}

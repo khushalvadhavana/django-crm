@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert-message">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                setTimeout(function () {
+                    var alertMessage = document.getElementById('alert-message');
+                    alertMessage.parentNode.removeChild(alertMessage);
+                }, 3000);
+            </script>
+            {% endfor %}
+            {% endif %}
+  <table class="table table-striped table-hover table-bordered mt-2">
+      <thead class="table-dark ">
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">Zipcode</th>
+        <!-- <th scope="col">Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% if records %}
+        {% for record in records %}
+        <tr class="text-white">
+            <td><a href="{% url 'user_details' record.id %}">{{ record.id }}</a></td>
+            <td>{{ record.created_at }}</td>
+            <td>{{ record.frist_name }} {{ record.last_name }}</td>
+            <td>{{ record.email }}</td>
+            <td>{{ record.phone }}</td>
+            <td>{{ record.address }}</td>
+            <td>{{ record.city }}</td>
+            <td>{{ record.state }}</td>
+            <td>{{ record.zipcode }}</td>
+        </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+  {% endblock %}
